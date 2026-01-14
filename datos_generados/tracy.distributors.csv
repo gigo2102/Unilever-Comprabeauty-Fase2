@@ -1,0 +1,18 @@
+ID,Name,MarketplaceId,CreatedDate,ModifiedDate,Deleted,DeletedDate,DeletedUser,SyncHealthStatus,OrderHookCheckStock,borrado
+10,Acofar,1,"March 13, 2025, 6:18 PM","March 13, 2025, 6:18 PM",,"January 1, 2000, 12:00 AM",,green,,0
+21,Cofaral,1,"April 14, 2025, 6:55 PM","April 14, 2025, 6:55 PM",,"January 1, 2000, 12:00 AM",,green,,0
+24,Suiza Maglione,1,"April 29, 2025, 6:43 PM","April 29, 2025, 6:43 PM",,"January 1, 2000, 12:00 AM",,green,,0
+25,Nippon,1,"May 6, 2025, 1:19 PM","May 6, 2025, 1:19 PM",,"January 1, 2000, 12:00 AM",,green,,0
+32,Drogueria Sur,1,"May 16, 2025, 3:15 PM","May 16, 2025, 3:15 PM",,"January 1, 2000, 12:00 AM",,green,,0
+9,Kellerhoff,1,"March 13, 2025, 6:18 PM","August 1, 2025, 11:30 AM",,"January 1, 2000, 12:00 AM",,green,,0
+34,Asoprofarma,1,"June 6, 2025, 12:37 PM","September 16, 2025, 2:02 PM",,"January 1, 2000, 12:00 AM",,green,https://compra-beauty-backoffice.unilever.axumweb.com/Hooks/QueryStock,0
+11,Suizo Argentina,1,"March 13, 2025, 6:20 PM","September 16, 2025, 2:05 PM",,"January 1, 2000, 12:00 AM",,green,https://compra-beauty-backoffice.unilever.axumweb.com/Hooks/QueryStock,0
+42,Cofarmen,1,"August 1, 2025, 11:21 AM","September 16, 2025, 2:11 PM",,"January 1, 2000, 12:00 AM",,green,https://compra-beauty-backoffice.unilever.axumweb.com/Hooks/QueryStock,0
+18,Cofarsur,1,"April 14, 2025, 6:51 PM","September 16, 2025, 2:19 PM",,"January 1, 2000, 12:00 AM",,green,https://compra-beauty-backoffice.unilever.axumweb.com/Hooks/QueryStock,0
+43,Disval,1,"August 1, 2025, 11:21 AM","October 23, 2025, 7:16 PM",,"January 1, 2000, 12:00 AM",,green,,0
+45,Drogueria del Sud,1,"August 1, 2025, 11:22 AM","August 13, 2025, 1:16 PM",,"January 1, 2000, 12:00 AM",,green,,0
+22,Mayorista Lider,1,"April 15, 2025, 8:40 PM","August 21, 2025, 2:58 PM",,"January 1, 2000, 12:00 AM",,green,,0
+12,Monroe Americana SA,1,"March 13, 2025, 6:20 PM","August 29, 2025, 8:28 PM",,"January 1, 2000, 12:00 AM",,green,https://compra-beauty-backoffice.unilever.axumweb.com/Hooks/QueryStock,0
+44,Doan,1,"August 1, 2025, 11:21 AM","September 9, 2025, 5:29 PM",,"January 1, 2000, 12:00 AM",,green,,0
+35,Marcas,1,"June 18, 2025, 7:49 PM","September 10, 2025, 3:06 PM",false,"January 1, 2000, 12:00 AM",,green,,0
+36,20 de Junio,1,"July 7, 2025, 4:00 PM","September 16, 2025, 1:51 PM",,"January 1, 2000, 12:00 AM",,green,https://compra-beauty-backoffice.unilever.axumweb.com/Hooks/QueryStock,0

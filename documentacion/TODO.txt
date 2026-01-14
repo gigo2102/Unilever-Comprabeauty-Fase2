@@ -1,0 +1,15 @@
+Armar a mano un excel con el mapeo de campos entre pedidos elvis y el importador de pedidos de tracy  OK
+04-documentacion-mapeo-campos-elvis-tracy.xlsx OK
+columa campos elvis y campos tracy (el) OK 
+
+
+script paso 5, hacer un python q migre pedidos elvis a pedidos tracy
+    pasar el excel de documentacion de mapeos a markdown pq el agente lo va a leer mejor
+
+
+script paso 6, generar un python q lea todos los CONTACTO ID de pedidos elvis, y lea el mail de clientes elvis,
+    y lea customer location tracy y genere un dataset llamado 06 update phxId customer location.csv,
+    q vamos a usar para hacer un update masivo antes de importar pedidos pq sino no va a encontrar clientes
+    pq fito y enzo pisaron customer location erpid sin querer en agosto
+    columnas resultantes: customerLocation.Id, customerLocation.erpIds, user.mail, clienteelvis.contactoid
+  

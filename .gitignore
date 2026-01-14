@@ -1,0 +1,33 @@
+# Archivos temporales de Excel
+~$*.xlsx
+~$*.xls
+~$*.docx
+
+# Archivos grandes de datos base (exceden límite de GitHub)
+datos_base/Base Elvis 2025.xlsx
+datos_base/Tracy 2025 FINAL.xlsx
+datos_base/Tracy 2025.xlsx
+
+# Configuración local de Claude Code
+.claude/
+
+# Carpetas de respaldo
+backups/
+historicos/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
