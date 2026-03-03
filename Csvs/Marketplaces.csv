@@ -1,0 +1,27 @@
+ID,Name,ProjectId,CreatedDate,ModifiedDate,Deleted,DeletedDate,DeletedUser,OwnOriginName,ExternalOrgs,ExternalSystemCode,ContactWith,AutomaticMailsAddressJson,MarketplaceLogoUrl,UrlFrontendPasswordRecovery,CaptureTaskHooksApproval
+2,Marketplace A,3,"December 19, 2024, 2:15 PM","December 19, 2024, 2:15 PM",true,"December 19, 2024, 2:15 PM",,,[],,,,,,
+3,Marketplace 2,2,"December 26, 2024, 6:04 PM","January 6, 2025, 4:58 PM",true,"January 22, 2025, 2:04 PM",,,[],,,,,,
+4,Pepsico-AR,4,"February 12, 2025, 2:24 PM","February 12, 2025, 2:24 PM",,"January 1, 2000, 12:00 AM",,Pepsico,[],,,,,,
+5,Tracy AI Demo Tiendanube,5,"March 13, 2025, 12:53 PM","March 13, 2025, 12:53 PM",,"January 1, 2000, 12:00 AM",,tracy-bot,[],,,,,,
+10,CCU QA,7,"November 20, 2025, 5:40 PM","December 10, 2025, 12:30 PM",,"January 1, 2000, 12:00 AM",,CCU-QA,[],inactive,,,,,http://34.227.101.255:8000/api/v1/image-processing/process-batch
+12,MiNegocioQaAdl,9,"December 19, 2025, 1:06 PM","December 19, 2025, 1:06 PM",,"January 1, 2000, 12:00 AM",,MiNegocioQaAdl-B2B,"[""MiNegocioQaAdl""]",axum_accounts,analista@MiNegocioQaAdl.com,,,,
+11,CCU Prod,8,"December 17, 2025, 3:19 PM","December 23, 2025, 7:42 PM",,"January 1, 2000, 12:00 AM",,CCUProd,[],inactive,,,,,http://34.227.101.255:8000/api/v1/image-processing/process-batch
+13,agrored dev panama,10,"December 29, 2025, 7:30 PM","December 29, 2025, 7:30 PM",,"January 1, 2000, 12:00 AM",,agrored-panama,[],inactive,,,,,
+7,masunoqagescomweb,4,"April 24, 2025, 5:22 PM","May 12, 2025, 12:30 PM",,"January 1, 2000, 12:00 AM",,masunoqagescomweb,"[""masunoqagescomweb""]",axum,,,,,
+8,minegocioqaadl,4,"April 25, 2025, 2:50 PM","May 12, 2025, 12:30 PM",,"January 1, 2000, 12:00 AM",,minegocioqaadl,"[""minegocioqaadl""]",axum,,,,,
+14,agrored qa panama,11,"December 29, 2025, 7:57 PM","December 29, 2025, 7:57 PM",,"January 1, 2000, 12:00 AM",,agrored-panama,[],inactive,,,,,
+15,minegocioqadyssarosario,9,"January 9, 2026, 6:20 PM","January 9, 2026, 6:20 PM",false,"January 1, 2000, 12:00 AM",,Tracy,"[""minegocioqadyssarosario""]",axum_accounts,analista@minegocioqadyssarosario.com,,,,
+16,minegocioqamabelherdi,9,"January 9, 2026, 8:20 PM","January 9, 2026, 8:20 PM",false,"January 1, 2000, 12:00 AM",,minegocioqamabelherdi-B2B,"[""minegocioqamabelherdi""]",axum_accounts,analista@minegocioqamabelherdi.com,,,,
+6,Compra Beauty - Ambiente DEV,2,"April 3, 2025, 3:44 PM","August 2, 2025, 1:59 PM",,"January 1, 2000, 12:00 AM",,CB Dev,"[""devnarqunileveractiva""]",axum,info@comprabeauty.com.ar,"{""SmtpHost"":""sandbox.smtp.mailtrap.io"",""SmtpPort"":465,""UseSsl"":true,""Username"":""6da24f1e290976"",""Password"":""4b2aa3190a66ae"",""FromEmail"":""info@comprabeauty.com.ar"",""FromName"":""info@comprabeauty.com.ar"",""ReplyToEmail"":""info@comprabeauty.com.ar"",""Enabled"":true}",https://compra-beauty-dev.axumweb.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.e2ac8375.png&w=640&q=75,https://compra-beauty-dev.axumweb.com/reset-password/reset,
+1,Compra Beauty - Ambiente Producción,2,"December 13, 2024, 1:10 PM","August 13, 2025, 1:04 PM",,"January 1, 2000, 12:00 AM",,CompraBeauty,"[""unileveractiva""]",axum,,"{
+  ""SmtpHost"": ""smtp.gmail.com"",
+  ""SmtpPort"": 587,
+  ""UseSsl"": true,
+  ""Username"": ""comprabeauty@greencodesoftware.com"",
+  ""Password"": ""wmse kywr ryoy sksn"",
+  ""FromEmail"": ""noresponder@comprabeauty.com.ar"",
+  ""FromName"": ""noresponder@comprabeauty.com.ar"",
+  ""ReplyToEmail"": ""noresponder@comprabeauty.com.ar"",
+  ""Enabled"": true
+}",https://compra-beauty.axumweb.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.e2ac8375.png&w=640&q=75,https://www.comprabeauty.com.ar/reset-password/reset,
+9,Compra Beauty - Ambiente QA,2,"May 7, 2025, 12:02 PM","November 6, 2025, 2:17 PM",,"January 1, 2000, 12:00 AM",,CB QA,"[""masunoqaunileveractiva""]",axum,,,,,http://3.80.231.117:8000/api/v1/image-processing/process-batch

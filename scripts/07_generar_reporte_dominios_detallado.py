@@ -1,0 +1,188 @@
+"""
+Script para generar reporte detallado de grupos de dominios corporativos
+"""
+import pandas as pd
+import os
+
+# Obtener rutas
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
+CSV_PATH = os.path.join(PROJECT_DIR, "Csvs")
+DATOS_PATH = os.path.join(PROJECT_DIR, "datos_generados")
+
+print("=" * 80)
+print("GENERANDO REPORTE DETALLADO DE GRUPOS POR DOMINIOS CORPORATIVOS")
+print("=" * 80)
+print()
+
+# Cargar datos
+print("Cargando datos...")
+locations = pd.read_csv(os.path.join(CSV_PATH, "CustomerLocation.csv"))
+users = pd.read_csv(os.path.join(CSV_PATH, "EcommerceUsers.csv"))
+fase1 = pd.read_csv(
+    os.path.join(DATOS_PATH, "fase1_consolidacion_dominios_corporativos.csv"),
+    encoding='utf-8-sig'
+)
+
+print(f"Grupos en Fase 1: {fase1['grupo_consolidacion_id'].nunique()}")
+print()
+
+# Merge con locations para obtener detalles
+print("Combinando con datos de locations...")
+fase1_detalle = fase1.merge(
+    locations[['ID', 'FantasyName', 'TaxId', 'FullAddress', 'Latitude', 'Longitude',
+               'EcommerceUserCreatorId', 'CreatedDate', 'Group', 'Region', 'Zone']],
+    left_on='location_id',
+    right_on='ID',
+    how='left'
+)
+
+# Merge con usuarios para obtener email del creador
+print("Combinando con datos de usuarios...")
+fase1_detalle = fase1_detalle.merge(
+    users[['ID', 'Email', 'FullName']],
+    left_on='EcommerceUserCreatorId',
+    right_on='ID',
+    how='left',
+    suffixes=('', '_user')
+)
+
+# Ordenar por grupo y master primero
+fase1_detalle = fase1_detalle.sort_values(
+    ['grupo_consolidacion_id', 'is_master'],
+    ascending=[True, False]
+)
+
+# Seleccionar columnas relevantes
+columnas_reporte = [
+    'grupo_consolidacion_id',
+    'location_id',
+    'is_master',
+    'FantasyName',
+    'TaxId',
+    'FullAddress',
+    'Latitude',
+    'Longitude',
+    'dominio',
+    'emails',
+    'Email',
+    'FullName',
+    'Group',
+    'Region',
+    'Zone',
+    'CreatedDate',
+    'confianza',
+    'alerta',
+    'locations_en_grupo',
+    'usuarios_en_grupo',
+    'codigos_compartidos',
+    'taxids_unicos',
+    'pedidos_total'
+]
+
+reporte = fase1_detalle[columnas_reporte].copy()
+
+# Renombrar columnas para mejor legibilidad
+reporte.columns = [
+    'Grupo ID',
+    'Location ID',
+    'Es Master',
+    'Nombre Location',
+    'TaxID',
+    'Dirección',
+    'Latitud',
+    'Longitud',
+    'Dominio',
+    'Todos los Emails del Grupo',
+    'Email Creador Location',
+    'Nombre Creador',
+    'Grupo',
+    'Región',
+    'Zona',
+    'Fecha Creación',
+    'Confianza',
+    'Alerta',
+    'Locations en Grupo',
+    'Usuarios en Grupo',
+    'Códigos Compartidos',
+    'TaxIDs Únicos',
+    'Pedidos Total'
+]
+
+# Guardar a Excel con formato
+output_file = os.path.join(DATOS_PATH, "reporte_grupos_dominios_detallado.xlsx")
+print(f"Guardando reporte en {output_file}...")
+
+from openpyxl import load_workbook
+from openpyxl.styles import PatternFill, Font, Alignment
+
+with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
+    reporte.to_excel(writer, sheet_name='Grupos Dominios', index=False)
+
+    # Aplicar formato
+    workbook = writer.book
+    worksheet = writer.sheets['Grupos Dominios']
+
+    # Formato de encabezado
+    header_fill = PatternFill(start_color='4472C4', end_color='4472C4', fill_type='solid')
+    header_font = Font(color='FFFFFF', bold=True)
+
+    for cell in worksheet[1]:
+        cell.fill = header_fill
+        cell.font = header_font
+        cell.alignment = Alignment(horizontal='center', vertical='center')
+
+    # Formato para filas master
+    master_fill = PatternFill(start_color='E2EFDA', end_color='E2EFDA', fill_type='solid')
+    master_font = Font(bold=True)
+
+    # Formato para alerta de conflicto TaxID
+    alert_fill = PatternFill(start_color='FFCCCC', end_color='FFCCCC', fill_type='solid')
+
+    for row in worksheet.iter_rows(min_row=2, max_row=worksheet.max_row):
+        # Si es master (columna C)
+        if row[2].value == True:
+            for cell in row:
+                cell.fill = master_fill
+                cell.font = master_font
+        # Si tiene alerta de conflicto TaxID
+        elif row[17].value == 'CONFLICTO_TAXID':
+            for cell in row:
+                cell.fill = alert_fill
+
+    # Ajustar ancho de columnas
+    worksheet.column_dimensions['A'].width = 15  # Grupo ID
+    worksheet.column_dimensions['B'].width = 12  # Location ID
+    worksheet.column_dimensions['C'].width = 10  # Es Master
+    worksheet.column_dimensions['D'].width = 30  # Nombre
+    worksheet.column_dimensions['E'].width = 20  # TaxID
+    worksheet.column_dimensions['F'].width = 40  # Dirección
+    worksheet.column_dimensions['G'].width = 12  # Latitud
+    worksheet.column_dimensions['H'].width = 12  # Longitud
+    worksheet.column_dimensions['I'].width = 30  # Dominio
+    worksheet.column_dimensions['J'].width = 50  # Todos los Emails
+    worksheet.column_dimensions['K'].width = 35  # Email Creador
+    worksheet.column_dimensions['L'].width = 25  # Nombre Creador
+    worksheet.column_dimensions['M'].width = 15  # Grupo
+    worksheet.column_dimensions['N'].width = 15  # Región
+    worksheet.column_dimensions['O'].width = 15  # Zona
+    worksheet.column_dimensions['P'].width = 20  # Fecha
+    worksheet.column_dimensions['Q'].width = 12  # Confianza
+    worksheet.column_dimensions['R'].width = 30  # Alerta
+    worksheet.column_dimensions['S'].width = 12  # Locations
+    worksheet.column_dimensions['T'].width = 12  # Usuarios
+    worksheet.column_dimensions['U'].width = 15  # Códigos
+    worksheet.column_dimensions['V'].width = 12  # TaxIDs Únicos
+    worksheet.column_dimensions['W'].width = 12  # Pedidos
+
+    # Congelar primera fila
+    worksheet.freeze_panes = 'A2'
+
+print()
+print("=" * 80)
+print("REPORTE GENERADO EXITOSAMENTE")
+print("=" * 80)
+print(f"Total de registros: {len(reporte)}")
+print(f"Total de grupos: {reporte['Grupo ID'].nunique()}")
+print(f"Archivo: {output_file}")
+print()
